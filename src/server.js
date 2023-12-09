@@ -6,7 +6,5 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-
 app.listen(8080);
-// localhost:8080/video/get-video
 app.use(rootRoute);

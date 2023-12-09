@@ -1,9 +1,19 @@
 import express from "express";
-import { addLike, getLikeByRes } from "../controllers/likeController.js";
+import {
+  addLike,
+  getLikeByRes,
+  getLikeByUser,
+} from "../controllers/likeController.js";
 
-const likeRoute = express();
+const likeRoute = express.Router();
 
-likeRoute.get("/get-like-by-res-id/:resId", getLikeByRes);
+// xử lý like
 likeRoute.post("/add-like", addLike);
+// xử lý unlike
+likeRoute.delete("/un-like");
+// lấy danh sách like theo nhà hàng
+likeRoute.get("/get-like-by-res/:res_id", getLikeByRes);
+// lấy danh sách nhà hàng mà user đã like
+likeRoute.get("/get-like-by-user/:user_id", getLikeByUser);
 
 export default likeRoute;
