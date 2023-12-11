@@ -21,7 +21,8 @@ export const getOrder = async (req, res) => {
 
 export const addOrder = async (req, res) => {
   try {
-    const { user_id, food_id, amount } = req.body;
+    const { user_id, food_id, amount, arr_sub_id } = req.body;
+
     const checkFood = await model.food.findOne({
       where: {
         food_id,
